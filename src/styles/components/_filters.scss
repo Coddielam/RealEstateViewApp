@@ -1,0 +1,145 @@
+@import "../mixins";
+@import "../vars";
+
+#filters {
+  background-color: $background-color;
+  padding: 15px 0;
+  overflow: hidden;
+  max-height: 1000px;
+  transition: all 1s;
+
+  .innerContainer {
+    @include responsive-attr(width, 96vw, 550px);
+    margin: 0 auto;
+    text-align: left;
+
+    label {
+      color: $gray-scaled-font-color;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .selectionFilterContainer {
+      margin-bottom: 12px;
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        margin: 0 8px;
+        background-color: rgba(119, 136, 153, 0.795);
+        width: 42px;
+        height: 24px;
+        border-radius: 15px;
+
+        // remove default input checkbox style
+        [type="checkbox"] {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .switchBall {
+          position: absolute;
+          left: 1px;
+          top: 1px;
+          height: 22px;
+          width: 22px;
+          background-color: white;
+          border-radius: 50%;
+          // animation
+          transition: transform 0.5s ease;
+        }
+
+        .switchBall.right {
+          transform: translateX(18px);
+        }
+      }
+
+      .switch.toggled {
+        background-color: #4eaf7fee;
+      }
+
+      .switch:hover {
+        cursor: pointer;
+      }
+
+      select {
+        color: $gray-scaled-font-color;
+        border: none;
+        padding: 4px;
+        box-shadow: $little-shadow;
+        background-color: white;
+        border-radius: 5px;
+      }
+
+      select:focus {
+        outline: none;
+      }
+    }
+
+    .inputFilter {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+
+      *:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .inputFilterContainer {
+        position: relative;
+        .inputWrapper {
+          .prefix {
+            font-size: 14px;
+            color: darkgray;
+            position: absolute;
+            left: 5px;
+            line-height: 25px;
+          }
+        }
+      }
+
+      input {
+        color: $gray-scaled-font-color;
+        height: 25px;
+        padding-left: 5px;
+        max-width: fit-content;
+        border: none;
+        box-shadow: $little-shadow;
+        border-radius: 3px;
+        font-size: 18px;
+      }
+      input[type="number"] {
+        text-align: right;
+      }
+      input:focus {
+        outline: none;
+        box-shadow: $little-shadow;
+      }
+    }
+  }
+}
+
+#filters.collapsed {
+  max-height: 0px;
+  padding: 0;
+}
+
+button#collapseFilter {
+  width: 100vw;
+  height: 4vh;
+  border: none;
+  box-shadow: $little-shadow;
+  background-color: whitesmoke;
+  color: rgb(161, 161, 161);
+  font-size: 16px;
+  font-style: italic;
+}
+
+button#collapseFilter:focus {
+  outline: none;
+}
+
+button#collapseFilter:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,5 @@
+@import '../mixins';
+
+input[name=XlFileLoader] {
+    @include responsive-attr(display, none, block);
+}

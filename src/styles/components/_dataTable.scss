@@ -1,0 +1,44 @@
+@import "../vars";
+
+#dataTable {
+  display: block;
+  max-width: 100vw;
+  overflow-x: scroll;
+  border-collapse: collapse;
+  box-shadow: 0px 1px 5px silver;
+  height: 90vh;
+
+  overscroll-behavior: none;
+
+  th,
+  td {
+    border: 0.5px solid rgba(177, 185, 194, 0.781);
+    color: $gray-scaled-font-color;
+  }
+
+  thead {
+    th {
+      background-color: #ffd166;
+      padding: 8px 16px;
+      min-width: 80px;
+      font-size: 16px;
+
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+  }
+
+  tr {
+    background-color: whitesmoke;
+  }
+  tr:nth-child(even) {
+    background-color: #dfdfdf;
+  }
+
+  td {
+    text-align: center;
+    padding: 8px 16px;
+    line-height: 20px;
+  }
+}

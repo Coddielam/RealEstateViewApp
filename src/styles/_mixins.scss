@@ -1,0 +1,16 @@
+// width less than
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1200px;
+
+@mixin responsive-attr($property, $sm-up, $md-up: $sm-up, $lg-up: $md-up) {
+    @media (max-width: $breakpoint-sm) {
+        #{$property}: $sm-up;
+    }
+    @media (min-width: $breakpoint-sm) {
+        #{$property}: $md-up;
+    }
+    @media (min-width: $breakpoint-md) {
+        #{$property}: $lg-up;
+    }
+}
